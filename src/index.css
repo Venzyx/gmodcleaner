@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f2f2f7;
+  --surface: #ffffff;
+  --fill: #e8e8ed;
+  --ink: #1c1c1e;
+  --muted: #86868b;
+  --line: rgba(60, 60, 67, 0.14);
+  --accent: #007aff;
+  --danger: #ff3b30;
+  --success: #34c759;
+  --warn: #ff9500;
+  --purple: #af52de;
+  --teal: #30b0c7;
+  --indigo: #5856d6;
+  --pink: #ff2d55;
+  --bar: rgba(255, 255, 255, 0.78);
+  --thumb: #ffffff;
+  --shadow-thumb: 0 0 0 0.5px rgba(0, 0, 0, 0.05), 0 0 3px rgba(0, 0, 0, 0.16);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.05), 0 4px 14px rgba(0, 0, 0, 0.06);
+  --shadow-pop: 0 10px 40px rgba(0, 0, 0, 0.22);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1c1c1e;
+    --surface: #2c2c2e;
+    --fill: #3a3a3c;
+    --ink: #f5f5f7;
+    --muted: #98989f;
+    --line: rgba(255, 255, 255, 0.1);
+    --accent: #0a84ff;
+    --danger: #ff453a;
+    --success: #30d158;
+    --warn: #ff9f0a;
+    --purple: #bf5af2;
+    --teal: #40c8e0;
+    --indigo: #5e5ce6;
+    --pink: #ff375f;
+    --bar: rgba(44, 44, 46, 0.78);
+    --thumb: #636366;
+    --shadow-thumb: 0 0 0 0.5px rgba(0, 0, 0, 0.2), 0 0 3px rgba(0, 0, 0, 0.3);
+    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 14px rgba(0, 0, 0, 0.25);
+    --shadow-pop: 0 10px 40px rgba(0, 0, 0, 0.6);
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fill: var(--fill);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-danger: var(--danger);
+  --color-success: var(--success);
+  --color-warn: var(--warn);
+  --color-purple: var(--purple);
+  --color-teal: var(--teal);
+  --color-indigo: var(--indigo);
+  --color-pink: var(--pink);
+  --color-bar: var(--bar);
+  --color-thumb: var(--thumb);
+  --shadow-thumb: var(--shadow-thumb);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-pop: var(--shadow-pop);
+  --animate-fade-in: fade-in 160ms ease-out;
+  --animate-pop: pop 200ms cubic-bezier(0.2, 0.9, 0.3, 1.1);
+  --animate-slide-in: slide-in 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-rise: rise 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(28px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  overflow: hidden;
+}
+
+/* Tailwind renk sınıflarını ezmemesi için temel katmanda. */
+@layer base {
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    cursor: default;
+  }
+}
+
+.selectable {
+  user-select: text;
+}
+
+.scroll-area {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
